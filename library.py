@@ -3,7 +3,7 @@ import os
 import glob
 date=os.system("date")
 liste=(glob.glob("*.txt"))
-istek=input("Kitap Takipçisine Hoşgeldiniz\nSeçilebilecek Durumlar\nKitap Bulma(1)\nKitap Ekle(2)\nKitap Sil(3)\nKitap Listesi(4)\nKitap Düzenleme(5)\nÇıkış(q)\nSeçiminiz:")
+istek=input("Kitap Takipçisine Hoşgeldiniz\nSeçilebilecek Durumlar\nKitap Bulma(1)\nKitap Ekle(2)\nKitap Sil(3)\nKitap Listesi(4)\nKitap Düzenleme(5)\nKitap Listesi(6)\nÇıkış(q)\nSeçiminiz:")
 print(date)
 while istek != "q":
     if istek == "1":
@@ -51,4 +51,16 @@ while istek != "q":
                 f.write(gki+" "+gky)   
             raise SystemExit
         kd.write()       
+        raise SystemExit
+    elif istek == "6":
+        a = 1
+        nan=input("kaça kadar arama yapmak istersiniz:")
+        while a < int(nan):
+            b=os.path.exists(str(a)+".txt")
+            b = str(b)
+            while b == "True":
+                oku=open(str(a)+".txt","r")
+                print(str(a)+":"+oku.readline())
+                break
+            a=(a+1)
         raise SystemExit
